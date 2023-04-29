@@ -10,7 +10,7 @@ for (file in file_list) {
   df <- read_excel(file)
   
   # get the name of the x variable
-  x_var <- names(df)[1] # assuming the x variable is the second column
+  x_var <- names(df)[1]
   
   # convert the x variable to date-time format
   df[[x_var]] <- as.POSIXct(df[[x_var]], format = "%Y-%m-%d %H:%M:%S")
