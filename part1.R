@@ -48,7 +48,7 @@ for (file in file_list) {
          y = expression(Ozono~(µg/m^{3}))) +  # axis labels with symbols
     scale_x_datetime(date_labels = "%Y-%m-%d", 
                      date_breaks = "2 month", 
-                     date_minor_breaks = "15 day") +  # date format and breaks
+                     date_minor_breaks = "1 month") +  # date format and breaks
     theme_minimal() + 
     theme(plot.title = element_text(size = 14),# face = "bold"),
           axis.title = element_text(size = 12),
@@ -97,7 +97,7 @@ dist_ts <- TSclust::diss(SERIES = t(ts_data), METHOD = "DTWARP")
 hc_c <- stats::hclust(dist_ts, method="complete") 
 plot(hc_c)
 
-hclus_c <- stats::cutree(hc_c, k = 1) %>%
+hclus_c <- stats::cutree(hc_c, k = 5) %>%
   as.data.frame(.) %>%
   dplyr::rename(.,cluster_group = .) %>%
   tibble::rownames_to_column("type_col")
