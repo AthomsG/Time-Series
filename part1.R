@@ -27,12 +27,20 @@ ts_data <- list()
 for (file in file_list) {
   # load data into data frame
   df <- read_excel(file)
+  # count the missing values
+  num_missing <- sum(is.na(df))
+  # calculate the percentage
+  percent_missing <- 100*num_missing/nrow(df)
+  # Extract the name of the file without the path and extension
+  filename <- gsub("^DATA/2021\\s+(.*)\\.xlsx$", "\\1", file)
+  # print the result
+  cat(paste("The percentage of missing values in", filename, "is", round(percent_missing, 2), "%.\n"))
   # interpolate missing values
   df <- na_interpolation(df, option = "linear")
   # extract the time series data
   ts <- df$`Ozono (µg/m3)`
   # add to the list
-  ts_data[[gsub("^DATA/2021\\s+(.*)\\.xlsx$", "\\1", file)]] <- ts
+  ts_data[[filename]] <- ts
   
   # get the name of x variable
   x_var <- names(df)[1]
@@ -44,24 +52,24 @@ for (file in file_list) {
   plot <- ggplot(df, aes(x = !!sym(x_var), y = `Ozono (µg/m3)`)) +
     geom_line(color = "#0072B2",
               linewidth = 0.2) +  # line color
-    labs(title = gsub("^DATA/2021\\s+(.*)\\.xlsx$", "\\1", file),
+    labs(title = filename,
          x = "Measurement Date",
          y = expression(Ozone~(µg/m^{3}))) +  # axis labels with symbols
     scale_x_datetime(date_labels = "%B", 
-                     date_breaks = "2 month", 
+                     date_breaks = "3 month", 
                      date_minor_breaks = "1 month") +  # date format and breaks
     theme_minimal() + 
-    theme(plot.title = element_text(size = 14),# face = "bold"),
-          axis.title = element_text(size = 12),
-          axis.text = element_text(size = 10),
+    theme(plot.title = element_text(size = 23),# face = "bold"),
+          axis.title = element_text(size = 18),
+          axis.text = element_text(size = 16),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.5) +
+          aspect.ratio = 0.3) +
     guides(color = FALSE)  # hide legend
   
   # save plot as a PDF file with the same name as Excel file
   file <- gsub("DATA", "PLOTS", file)
-  suppressMessages(ggsave(gsub("\\.xlsx", ".pdf", file), plot))
+  suppressMessages(ggsave(gsub("\\.xlsx", ".pdf", file), plot, width = 7, height = 3))
   
   # plot rolling mean and standard deviation
   roll_mean <- rollapply(ts, width = 200, FUN = mean, fill = NA, align = "right")
@@ -78,38 +86,38 @@ for (file in file_list) {
     scale_color_manual(name = "Lines", 
                        values = c("Rolling Mean" = "#0072B2", "Original Time Series" = "red")) +
     scale_x_datetime(date_labels = "%B", 
-                     date_breaks = "2 month", 
+                     date_breaks = "3 month", 
                      date_minor_breaks = "1 month") +
     theme_minimal() + 
-    theme(plot.title = element_text(size = 14),# face = "bold"),
-          axis.title = element_text(size = 12),
-          axis.text = element_text(size = 10),
+    theme(plot.title = element_text(size = 20),# face = "bold"),
+          axis.title = element_text(size = 16),
+          axis.text = element_text(size = 14),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.5) +
+          aspect.ratio = 0.4) +
     guides(color = FALSE) 
   
   # save plot as a PDF file with the same name as Excel file
   file_ts <- gsub("DATA", "PLOTS", file)
-  suppressMessages(ggsave(gsub("\\.xlsx", "_sp.pdf", file_ts), plot_ts)) #statistical properties
+  suppressMessages(ggsave(gsub("\\.xlsx", "_sp.pdf", file_ts), plot_ts, width = 6, height = 3)) #statistical properties
   
   # plot histogram
   hist <- ggplot(df, aes(x = `Ozono (µg/m3)`)) +
     geom_histogram(binwidth = 2, fill = "#0072B2", color = "white") +
-    labs(title = gsub("^PLOTS/2021\\s+(.*)\\.xlsx", "\\1", file),
+    labs(title = filename,
          x = expression(Ozone~(µg/m^{3})),
          y = "Frequency") +
     scale_x_continuous(breaks = seq(0, 150, by = 25)) +
     theme_minimal() +
-    theme(plot.title = element_text(size = 14),
-          axis.title = element_text(size = 12),
-          axis.text = element_text(size = 10),
+    theme(plot.title = element_text(size = 20),
+          axis.title = element_text(size = 16),
+          axis.text = element_text(size = 14),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.5)
+          aspect.ratio = 0.4)
   
   # save plot as a PDF file with the same name as Excel file
-  suppressMessages(ggsave(gsub("\\.xlsx", "_hist.pdf", file), hist))
+  suppressMessages(ggsave(gsub("\\.xlsx", "_hist.pdf", file), hist, width = 6, height = 3))
   
   print(gsub("^PLOTS/2021\\s+(.*)\\.xlsx", "\\1", file))
   print(summary(df$`Ozono (µg/m3)`))
@@ -164,9 +172,9 @@ p2_c <- ts_data %>%
         axis.line = element_line(linewidth = 1),
         panel.grid.major = element_line(color = "#DDDDDD"),
         legend.position = "none",
-        plot.title = element_text(size = 14, hjust = 0.5),
-        axis.title = element_text(size = 12),
-        axis.text =  element_text(size = 10))
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.title = element_text(size = 16),
+        axis.text =  element_text(size = 14))
 
 gp1_c<-ggplotGrob(p1_c)
 gp2_c<-ggplotGrob(p2_c) 
