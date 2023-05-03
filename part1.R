@@ -6,6 +6,7 @@ library(imputeTS) # missing value imputation
 library(TSclust) # time series clustering
 library(extremogram)
 library(forecast)
+library(zoo)
 # graphics
 library(ggplot2) # plots
 library(ggdendro) # dendrograms
@@ -44,9 +45,9 @@ for (file in file_list) {
     geom_line(color = "#0072B2",
               linewidth = 0.2) +  # line color
     labs(title = gsub("^DATA/2021\\s+(.*)\\.xlsx$", "\\1", file),
-         x = "Date",
-         y = expression(Ozono~(µg/m^{3}))) +  # axis labels with symbols
-    scale_x_datetime(date_labels = "%Y-%m-%d", 
+         x = "Measurement Date",
+         y = expression(Ozone~(µg/m^{3}))) +  # axis labels with symbols
+    scale_x_datetime(date_labels = "%B", 
                      date_breaks = "2 month", 
                      date_minor_breaks = "1 month") +  # date format and breaks
     theme_minimal() + 
@@ -62,11 +63,41 @@ for (file in file_list) {
   file <- gsub("DATA", "PLOTS", file)
   suppressMessages(ggsave(gsub("\\.xlsx", ".pdf", file), plot))
   
+  # plot rolling mean and standard deviation
+  roll_mean <- rollapply(ts, width = 200, FUN = mean, fill = NA, align = "right")
+  roll_sd <- rollapply(ts, width = 200, FUN = sd, fill = NA, align = "right")
+  df_ts <- data.frame(x = df[[x_var]], y = ts, mean = roll_mean, sd = roll_sd)
+  
+  plot_ts <- ggplot(df_ts, aes(x = x, y = y)) +
+    geom_ribbon(aes(ymin = mean - sd, ymax = mean + sd), alpha = 0.2) +
+    geom_line(aes(y = mean, color = "Rolling Mean")) +
+    labs(title = "Rolling Mean & Standard Deviation",
+         x = "Measurement Date",
+         y = expression(Ozone~(µg/m^{3})),
+         subtitle = "Window width = 200 observations") +
+    scale_color_manual(name = "Lines", 
+                       values = c("Rolling Mean" = "#0072B2", "Original Time Series" = "red")) +
+    scale_x_datetime(date_labels = "%B", 
+                     date_breaks = "2 month", 
+                     date_minor_breaks = "1 month") +
+    theme_minimal() + 
+    theme(plot.title = element_text(size = 14),# face = "bold"),
+          axis.title = element_text(size = 12),
+          axis.text = element_text(size = 10),
+          axis.line = element_line(linewidth = 1),
+          panel.grid.major = element_line(color = "#DDDDDD"),
+          aspect.ratio = 0.5) +
+    guides(color = FALSE) 
+  
+  # save plot as a PDF file with the same name as Excel file
+  file_ts <- gsub("DATA", "PLOTS", file)
+  suppressMessages(ggsave(gsub("\\.xlsx", "_sp.pdf", file_ts), plot_ts)) #statistical properties
+  
   # plot histogram
   hist <- ggplot(df, aes(x = `Ozono (µg/m3)`)) +
     geom_histogram(binwidth = 2, fill = "#0072B2", color = "white") +
     labs(title = gsub("^PLOTS/2021\\s+(.*)\\.xlsx", "\\1", file),
-         x = expression(Ozono~(µg/m^{3})),
+         x = expression(Ozone~(µg/m^{3})),
          y = "Frequency") +
     scale_x_continuous(breaks = seq(0, 150, by = 25)) +
     theme_minimal() +
@@ -122,8 +153,8 @@ p2_c <- ts_data %>%
   facet_wrap(~type_col, 
              ncol = 1, 
              strip.position="left") + 
-  labs(x = "Date", 
-       y = expression(Ozono~(µg/m^{3}))) +
+  labs(x = "Measurement Date", 
+       y = expression(Ozone~(µg/m^{3}))) +
   scale_x_datetime(date_labels = "%B", 
                    date_breaks = "3 month", 
                    date_minor_breaks = "1 month") +  # date format and breaks
