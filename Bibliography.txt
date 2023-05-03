@@ -12,3 +12,24 @@ BIBLIOGRAPHY
   year={1964},
   publisher={Wiley Online Library}
 }
+
+% Impute-TS package
+
+@article{moritz2017imputets,
+  title={imputeTS: time series missing value imputation in R.},
+  author={Moritz, Steffen and Bartz-Beielstein, Thomas},
+  journal={R J.},
+  volume={9},
+  number={1},
+  pages={207},
+  year={2017}
+}
+
+% Principal da Bibliografia
+
+@book{shumway2017time,
+  title={Time Series Analysis and Its Applications: With R Examples},
+  author={Shumway, Robert H and Stoffer, David S},
+  year={2017},
+  publisher={Springer}
+}
