@@ -20,6 +20,19 @@ file_list <- paste("DATA/", list.files(path = "DATA", pattern = "\\.xlsx$"), sep
 ts_data <- list()
 
 # ===================================================
+#                    Auxiliary Functions
+# ===================================================
+
+# Box Cox transformation -> w = (y^lambda-1)/lambda
+BoxCox <- function(x, lambda) {
+  if(lambda == 0) {
+    return(log(x))
+  } else {
+    return((x^lambda-1)/lambda)
+  }
+}
+
+# ===================================================
 #                    EDA - Exploratory Data Analysis
 # ===================================================
 
@@ -36,7 +49,7 @@ for (file in file_list) {
   # print the result
   cat(paste("The percentage of missing values in", filename, "is", round(percent_missing, 2), "%.\n"))
   # interpolate missing values
-  df <- na_interpolation(df, option = "linear")
+  df <- na_interpolation(df, option="linear")
   # extract the time series data
   ts <- df$`Ozono (µg/m3)`
   # add to the list
@@ -100,6 +113,35 @@ for (file in file_list) {
   # save plot as a PDF file with the same name as Excel file
   file_ts <- gsub("DATA", "PLOTS", file)
   suppressMessages(ggsave(gsub("\\.xlsx", "_sp.pdf", file_ts), plot_ts, width = 6, height = 3)) #statistical properties
+  
+  # Box-Cox Transform    ----->    FIQUEI AQUI
+  guerrero_lambda=BoxCox.lambda(df$`Ozono (µg/m3)`)
+  df_BC=BoxCox(df$`Ozono (µg/m3)`, lambda=guerrero_lambda)
+  
+  print(guerrero_lambda)
+  
+  df_BC<-data.frame(df[x_var], df_BC)
+
+  plot <- ggplot(df_BC, aes(x = !!sym(names(df_BC)[1]), y = `df_BC`)) +
+    geom_line(color = "#0072B2",
+              linewidth = 0.2) +  # line color
+    labs(title = filename,
+         x = "Measurement Date",
+         y = expression(Ozone~(µg/m^{3}))) +  # axis labels with symbols
+    scale_x_datetime(date_labels = "%B", 
+                     date_breaks = "3 month", 
+                     date_minor_breaks = "1 month") +  # date format and breaks
+    theme_minimal() + 
+    theme(plot.title = element_text(size = 23),# face = "bold"),
+          axis.title = element_text(size = 18),
+          axis.text = element_text(size = 16),
+          axis.line = element_line(linewidth = 1),
+          panel.grid.major = element_line(color = "#DDDDDD"),
+          aspect.ratio = 0.4) +
+    guides(color = FALSE)  # hide legend
+  
+  # save plot as a PDF file with the same name as Excel file
+  suppressMessages(ggsave(gsub("\\.xlsx", "_bc.pdf", file), plot, width = 6, height = 3))
   
   # plot histogram
   hist <- ggplot(df, aes(x = `Ozono (µg/m3)`)) +
