@@ -7,6 +7,7 @@ library(TSclust) # time series clustering
 library(extremogram)
 library(forecast)
 library(zoo)
+library(psych)
 # graphics
 library(ggplot2) # plots
 library(ggdendro) # dendrograms
@@ -51,10 +52,9 @@ for (file in file_list) {
   # interpolate missing values
   df <- na_interpolation(df, option="linear")
   # extract the time series data
-  ts <- df$`Ozono (µg/m3)`
+  ts <- ts(df$`Ozono (µg/m3)`, start=c(1, 1), end=c(365, 24), frequency=24)
   # add to the list
   ts_data[[filename]] <- ts
-  
   # get the name of x variable
   x_var <- names(df)[1]
   
@@ -107,7 +107,7 @@ for (file in file_list) {
           axis.text = element_text(size = 14),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.4) +
+          aspect.ratio = 0.3) +
     guides(color = FALSE) 
   
   # save plot as a PDF file with the same name as Excel file
@@ -115,8 +115,8 @@ for (file in file_list) {
   suppressMessages(ggsave(gsub("\\.xlsx", "_sp.pdf", file_ts), plot_ts, width = 6, height = 3)) #statistical properties
   
   # Box-Cox Transform    ----->    FIQUEI AQUI
-  guerrero_lambda=BoxCox.lambda(df$`Ozono (µg/m3)`)
-  df_BC=BoxCox(df$`Ozono (µg/m3)`, lambda=guerrero_lambda)
+  guerrero_lambda=BoxCox.lambda(ts)
+  df_BC=BoxCox(ts, lambda=guerrero_lambda)
   
   print(guerrero_lambda)
   
@@ -137,11 +137,11 @@ for (file in file_list) {
           axis.text = element_text(size = 16),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.4) +
+          aspect.ratio = 0.3) +
     guides(color = FALSE)  # hide legend
   
   # save plot as a PDF file with the same name as Excel file
-  suppressMessages(ggsave(gsub("\\.xlsx", "_bc.pdf", file), plot, width = 6, height = 3))
+  suppressMessages(ggsave(gsub("\\.xlsx", "_bc.pdf", file), plot, width = 7, height = 3))
   
   # plot histogram
   hist <- ggplot(df, aes(x = `Ozono (µg/m3)`)) +
