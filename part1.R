@@ -52,7 +52,7 @@ for (file in file_list) {
   # interpolate missing values
   df <- na_interpolation(df, option="linear")
   # extract the time series data
-  ts <- ts(df$`Ozono (µg/m3)`, start=c(1, 1), end=c(365, 24), frequency=24)
+  ts <- ts(df$`Ozono (µg/m3)`, start=c(1, 1), frequency=24, end=c(365, 24))
   # add to the list
   ts_data[[filename]] <- ts
   # get the name of x variable
@@ -107,7 +107,7 @@ for (file in file_list) {
           axis.text = element_text(size = 14),
           axis.line = element_line(linewidth = 1),
           panel.grid.major = element_line(color = "#DDDDDD"),
-          aspect.ratio = 0.3) +
+          aspect.ratio = 0.4) +
     guides(color = FALSE) 
   
   # save plot as a PDF file with the same name as Excel file
@@ -170,6 +170,24 @@ for (file in file_list) {
 # ===================================================
 
 ts_data <- as.data.frame(ts_data)
+
+#for (ts in ts_data){
+#  pdf("my_plot.pdf") # open pdf device
+#  # set the layout to two columns
+#  par(mfrow=c(1,2))
+#  # plot ACF
+#  acf(ts, main="", cex.main=1.5)
+#  # plot PACF
+#  pacf(ts, main="", cex.main=1.5)
+#  # add shared title
+#  mtext("Amadora-Alfragide", line=2, cex=1.5)
+#  dev.off() # close pdf device
+#}
+
+pdf("my_plot.pdf") # open pdf device
+ggtsdisplay(ts_data[1],
+            theme=theme_minimal())
+dev.off()
 
 # Clusters
 dist_ts <- TSclust::diss(SERIES = t(ts_data), METHOD = "DTWARP") 
