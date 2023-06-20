@@ -54,7 +54,6 @@ forecast_plot <- function(forecast_obj, x, title = "", n_points = 10) {
 # Olivais: PASS
 Olivais = ts_data$Olivais
 Olivais_lambda = guerrero_lambda=BoxCox.lambda(Olivais)
-
 # Fit best model
 Olivais_fit <- Arima(Olivais, 
                        order = c(2,0,1), 
@@ -62,16 +61,17 @@ Olivais_fit <- Arima(Olivais,
                        lambda = Olivais_lambda)
 
 # Compute the Ljung-Box test statistic
-ljung_box_test_Olivais <- Box.test(Olivais_fit$residuals, lag = 8760/4, type = "Ljung-Box")
-ljung_box_test_Olivais 
+ljung_box_test_Olivais <- Box.test(Olivais_fit$residuals, lag = 12, type = "Ljung-Box")
+ljung_box_test_Olivais
 #checkresiduals(Olivais_fit$residuals, lag = 8760/4)
 
 # Forcast
 olivais_forecast<-forecast(Olivais_fit, h=5, level=95)
 forecast_plot(olivais_forecast, Olivais, title = "Olivais Forecast", n_points = 14)
 
+olivais_forecast
 # Coefficients
-coef(Olivais_fit)
+coef(Olivais_fit, include.mean=TRUE)
 
 ##############################################################################################
 
@@ -86,7 +86,7 @@ alfragide_fit <- Arima(alfragide,
                     lambda = alfragide_lambda)
 
 # Compute the Ljung-Box test statistic
-ljung_box_test_alfragide <- Box.test(alfragide_fit$residuals, lag = 8760/4, type = "Ljung-Box")
+ljung_box_test_alfragide <- Box.test(alfragide_fit$residuals, lag = 12, type = "Ljung-Box")
 ljung_box_test_alfragide
 #checkresiduals(alfragide_fit$residuals, lag = 8760/4)
 
@@ -94,8 +94,9 @@ ljung_box_test_alfragide
 alfragide_forecast<-forecast(alfragide_fit, h=5, level=95)
 forecast_plot(alfragide_forecast, alfragide, title = "Alfragide Forecast", n_points = 14)
 
+alfragide_forecast
 # Coefficients
-coef(Alfragide_fit)
+coef(alfragide_fit)
 ##############################################################################################
 
 # Beato:
@@ -109,7 +110,7 @@ beato_fit <- Arima(beato,
                        lambda = beato_lambda)
 
 # Compute the Ljung-Box test statistic
-ljung_box_test_beato <- Box.test(beato_fit$residuals, lag = 8760/4, type = "Ljung-Box")
+ljung_box_test_beato <- Box.test(beato_fit$residuals, lag = 12, type = "Ljung-Box")
 ljung_box_test_beato
 #checkresiduals(beato_fit$residuals, lag = 8760/4)
 
@@ -117,6 +118,7 @@ ljung_box_test_beato
 beato_forecast<-forecast(beato_fit, h=5, level=95)
 forecast_plot(beato_forecast, beato, title = "Beato Forecast", n_points = 14)
 
+beato_forecast
 # Coefficients
 coef(beato_fit)
 ##############################################################################################
@@ -132,7 +134,7 @@ entrecampos_fit <- Arima(entrecampos,
                    lambda = entrecampos_lambda)
 
 # Compute the Ljung-Box test statistic
-ljung_box_test_entrecampos <- Box.test(entrecampos_fit$residuals, lag = 8760/4, type = "Ljung-Box")
+ljung_box_test_entrecampos <- Box.test(entrecampos_fit$residuals, lag = 12, type = "Ljung-Box")
 ljung_box_test_entrecampos
 #checkresiduals(entrecampos_fit$residuals, lag = 8760/4)
 
@@ -140,6 +142,7 @@ ljung_box_test_entrecampos
 entrecampos_forecast<-forecast(entrecampos_fit, h=5, level=95)
 forecast_plot(entrecampos_forecast, entrecampos, title = "Entrecampos Forecast", n_points = 14)
 
+entrecampos_forecast
 # Coefficients
 coef(entrecampos_fit)
 ##############################################################################################
@@ -160,7 +163,7 @@ Reboleira_fit <- Arima(Reboleira,
                        lambda = Reboleira_lambda) # COMPLEX MODEL FAILS
 
 # Compute the Ljung-Box test statistic
-ljung_box_test_Reboleira <- Box.test(Reboleira_fit$residuals, lag = 8760/4, type = "Ljung-Box")
+ljung_box_test_Reboleira <- Box.test(Reboleira_fit$residuals, lag = 12, type = "Ljung-Box")
 ljung_box_test_Reboleira
 #checkresiduals(Reboleira_fit$residuals, lag = 8760/4)
 
@@ -168,5 +171,6 @@ ljung_box_test_Reboleira
 Reboleira_forecast<-forecast(Reboleira_fit, h=5, level=95)
 forecast_plot(Reboleira_forecast, Reboleira, title = "Reboleira Forecast", n_points = 14)
 
+Reboleira_forecast
 # Coefficients
 coef(Reboleira_fit)
