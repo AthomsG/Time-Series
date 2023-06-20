@@ -1,0 +1,689 @@
+City: Alfragide-Amadora 
+Model: Model 1 
+AIC: 66551.1 
+BIC: 66572.33 
+
+Model: Model 2 
+AIC: 65696.06 
+BIC: 65724.37 
+
+Model: Model 3 
+AIC: 65925.53 
+BIC: 65953.84 
+
+Model: Model 4 
+AIC: 64473.77 
+BIC: 64509.16 
+
+Model: Model 5 
+AIC: 65603.3 
+BIC: 65631.61 
+
+Model: Model 6 
+AIC: 65055.5 
+BIC: 65090.89 
+
+Model: Model 7 
+AIC: 65181.48 
+BIC: 65216.87 
+
+Model: Model 8 
+AIC: 64133.92 
+BIC: 64176.39 
+
+Model: Model 9 
+AIC: 65506.23 
+BIC: 65534.54 
+
+Model: Model 10 
+AIC: 65032.53 
+BIC: 65067.92 
+
+Model: Model 11 
+AIC: 65139.51 
+BIC: 65174.9 
+
+Model: Model 12 
+AIC: 64156.68 
+BIC: 64199.15 
+
+Model: Model 13 
+AIC: 65508.01 
+BIC: 65543.4 
+
+Model: Model 14 
+AIC: 65029.9 
+BIC: 65072.37 
+
+Model: Model 15 
+AIC: 65138.76 
+BIC: 65181.23 
+
+Model: Model 16 
+AIC: 64135.37 
+BIC: 64184.92 
+
+Model: Model 17 
+AIC: 69194.43 
+BIC: 69208.58 
+
+Model: Model 18 
+AIC: 67124.75 
+BIC: 67145.98 
+
+Model: Model 19 
+AIC: 64346.94 
+BIC: 64368.17 
+
+Model: Model 20 
+AIC: 64307.26 
+BIC: 64335.56 
+
+Model: Model 21 
+AIC: 68861.46 
+BIC: 68882.69 
+
+Model: Model 22 
+AIC: 66797.77 
+BIC: 66826.07 
+
+Model: Model 23 
+AIC: 64016.21 
+BIC: 64044.51 
+
+Model: Model 24 
+AIC: 63972.1 
+BIC: 64007.48 
+
+Model: Model 25 
+AIC: 68893.45 
+BIC: 68914.67 
+
+Model: Model 26 
+AIC: 66819.8 
+BIC: 66848.1 
+
+Model: Model 27 
+AIC: 64039.75 
+BIC: 64068.05 
+
+Model: Model 28 
+AIC: 63997.03 
+BIC: 64032.41 
+
+Model: Model 29 
+AIC: 68860.68 
+BIC: 68888.98 
+
+Model: Model 30 
+AIC: 66798.88 
+BIC: 66834.25 
+
+Model: Model 31 
+AIC: 64017.31 
+BIC: 64052.69 
+
+Model: Model 32 
+AIC: 63973.1 
+BIC: 64015.55 
+
+Model: Model 33 
+AIC: 63972.61 
+BIC: 64007.98 
+
+Model: Model 34 
+AIC: 63997.62 
+BIC: 64032.99 
+
+
+City: Beato 
+Model: Model 1 
+AIC: 72576.87 
+BIC: 72598.11 
+
+Model: Model 2 
+AIC: 71576.59 
+BIC: 71604.9 
+
+Model: Model 3 
+AIC: 71866.27 
+BIC: 71894.58 
+
+Model: Model 4 
+AIC: 70313.43 
+BIC: 70348.82 
+
+Model: Model 5 
+AIC: 71675.11 
+BIC: 71703.42 
+
+Model: Model 6 
+AIC: 71048.43 
+BIC: 71083.82 
+
+Model: Model 7 
+AIC: 71214.87 
+BIC: 71250.26 
+
+Model: Model 8 
+AIC: 70028.31 
+BIC: 70070.78 
+
+Model: Model 9 
+AIC: 71623.82 
+BIC: 71652.14 
+
+Model: Model 10 
+AIC: 71043.83 
+BIC: 71079.21 
+
+Model: Model 11 
+AIC: 71195.62 
+BIC: 71231.01 
+
+Model: Model 12 
+AIC: 70059.78 
+BIC: 70102.25 
+
+Model: Model 13 
+AIC: 71624.41 
+BIC: 71659.8 
+
+Model: Model 14 
+AIC: 71041.57 
+BIC: 71084.04 
+
+Model: Model 15 
+AIC: 71195.34 
+BIC: 71237.81 
+
+Model: Model 16 
+AIC: 70016.48 
+BIC: 70066.03 
+
+Model: Model 17 
+AIC: 74886.91 
+BIC: 74901.06 
+
+Model: Model 18 
+AIC: 72802.05 
+BIC: 72823.27 
+
+Model: Model 19 
+AIC: 70160.66 
+BIC: 70181.88 
+
+Model: Model 20 
+AIC: 70095.67 
+BIC: 70123.97 
+
+Model: Model 21 
+AIC: 74657.54 
+BIC: 74678.76 
+
+Model: Model 22 
+AIC: 72546.29 
+BIC: 72574.59 
+
+Model: Model 23 
+AIC: 69883.44 
+BIC: 69911.75 
+
+Model: Model 24 
+AIC: 69826.59 
+BIC: 69861.97 
+
+Model: Model 25 
+AIC: 74675.66 
+BIC: 74696.89 
+
+Model: Model 26 
+AIC: 72569.33 
+BIC: 72597.63 
+
+Model: Model 27 
+AIC: 69915.43 
+BIC: 69943.73 
+
+Model: Model 28 
+AIC: 69857.03 
+BIC: 69892.41 
+
+Model: Model 29 
+AIC: 74650.12 
+BIC: 74678.42 
+
+Model: Model 30 
+AIC: 72535.86 
+BIC: 72571.24 
+
+Model: Model 31 
+AIC: 69869.8 
+BIC: 69905.18 
+
+Model: Model 32 
+AIC: 69812.99 
+BIC: 69855.44 
+
+Model: Model 33 
+AIC: 69829.49 
+BIC: 69864.87 
+
+Model: Model 34 
+AIC: 69860.03 
+BIC: 69895.4 
+
+
+City: Entrecampos 
+Model: Model 1 
+AIC: 71353.8 
+BIC: 71375.03 
+
+Model: Model 2 
+AIC: 70414.85 
+BIC: 70443.16 
+
+Model: Model 3 
+AIC: 70694.05 
+BIC: 70722.36 
+
+Model: Model 4 
+AIC: 69129.83 
+BIC: 69165.22 
+
+Model: Model 5 
+AIC: 70440.77 
+BIC: 70469.08 
+
+Model: Model 6 
+AIC: 69865.9 
+BIC: 69901.29 
+
+Model: Model 7 
+AIC: 70024.94 
+BIC: 70060.33 
+
+Model: Model 8 
+AIC: 68812.97 
+BIC: 68855.44 
+
+Model: Model 9 
+AIC: 70382.99 
+BIC: 70411.3 
+
+Model: Model 10 
+AIC: 69856.19 
+BIC: 69891.58 
+
+Model: Model 11 
+AIC: 69999.64 
+BIC: 70035.03 
+
+Model: Model 12 
+AIC: 68837.79 
+BIC: 68880.26 
+
+Model: Model 13 
+AIC: 70377.18 
+BIC: 70412.57 
+
+Model: Model 14 
+AIC: 69850.58 
+BIC: 69893.05 
+
+Model: Model 15 
+AIC: 69995.14 
+BIC: 70037.61 
+
+Model: 
+AIC: 
+BIC: 
+
+Model: Model 17 
+AIC: 73786.38 
+BIC: 73800.53 
+
+Model: Model 18 
+AIC: 71614.59 
+BIC: 71635.81 
+
+Model: Model 19 
+AIC: 68995.94 
+BIC: 69017.17 
+
+Model: Model 20 
+AIC: 68957.62 
+BIC: 68985.93 
+
+Model: Model 21 
+AIC: 73543.93 
+BIC: 73565.15 
+
+Model: Model 22 
+AIC: 71331.82 
+BIC: 71360.12 
+
+Model: Model 23 
+AIC: 68685.58 
+BIC: 68713.89 
+
+Model: Model 24 
+AIC: 68653.12 
+BIC: 68688.49 
+
+Model: Model 25 
+AIC: 73560.59 
+BIC: 73581.82 
+
+Model: Model 26 
+AIC: 71356.26 
+BIC: 71384.56 
+
+Model: Model 27 
+AIC: 68711.02 
+BIC: 68739.32 
+
+Model: Model 28 
+AIC: 68677.99 
+BIC: 68713.37 
+
+Model: Model 29 
+AIC: 73544.31 
+BIC: 73572.61 
+
+Model: Model 30 
+AIC: 71331.66 
+BIC: 71367.04 
+
+Model: Model 31 
+AIC: 68686.6 
+BIC: 68721.97 
+
+Model: Model 32 
+AIC: 68654.03 
+BIC: 68696.48 
+
+Model: Model 33 
+AIC: 68654.98 
+BIC: 68690.36 
+
+Model: Model 34 
+AIC: 68679.82 
+BIC: 68715.2 
+
+
+City: Olivais 
+Model: Model 1 
+AIC: 67550.64 
+BIC: 67571.88 
+
+Model: Model 2 
+AIC: 66531.55 
+BIC: 66559.86 
+
+Model: Model 3 
+AIC: 66844.46 
+BIC: 66872.78 
+
+Model: Model 4 
+AIC: 65068.5 
+BIC: 65103.89 
+
+Model: Model 5 
+AIC: 66510.07 
+BIC: 66538.38 
+
+Model: Model 6 
+AIC: 65878.81 
+BIC: 65914.2 
+
+Model: Model 7 
+AIC: 66050.48 
+BIC: 66085.87 
+
+Model: Model 8 
+AIC: 64715.33 
+BIC: 64757.8 
+
+Model: Model 9 
+AIC: 66445.1 
+BIC: 66473.42 
+
+Model: Model 10 
+AIC: 65874.15 
+BIC: 65909.54 
+
+Model: Model 11 
+AIC: 66027.47 
+BIC: 66062.86 
+
+Model: Model 12 
+AIC: 64757.23 
+BIC: 64799.7 
+
+Model: Model 13 
+AIC: 66441.55 
+BIC: 66476.94 
+
+Model: Model 14 
+AIC: 65865.56 
+BIC: 65908.03 
+
+Model: Model 15 
+AIC: 66021.42 
+BIC: 66063.88 
+
+Model: Model 16 
+AIC: 64709.8 
+BIC: 64759.34 
+
+Model: Model 17 
+AIC: 69852.5 
+BIC: 69866.65 
+
+Model: Model 18 
+AIC: 67642.38 
+BIC: 67663.61 
+
+Model: Model 19 
+AIC: 64931.05 
+BIC: 64952.28 
+
+Model: Model 20 
+AIC: 64898.77 
+BIC: 64927.07 
+
+Model: Model 21 
+AIC: 69523.72 
+BIC: 69544.94 
+
+Model: Model 22 
+AIC: 67332.07 
+BIC: 67360.37 
+
+Model: Model 23 
+AIC: 64586.56 
+BIC: 64614.87 
+
+Model: Model 24 
+AIC: 64554.93 
+BIC: 64590.3 
+
+Model: Model 25 
+AIC: 69553.06 
+BIC: 69574.29 
+
+Model: Model 26 
+AIC: 67360.39 
+BIC: 67388.69 
+
+Model: Model 27 
+AIC: 64629.32 
+BIC: 64657.62 
+
+Model: Model 28 
+AIC: 64597.13 
+BIC: 64632.51 
+
+Model: Model 29 
+AIC: 69521.84 
+BIC: 69550.14 
+
+Model: Model 30 
+AIC: 67329.07 
+BIC: 67364.45 
+
+Model: Model 31 
+AIC: 64579.74 
+BIC: 64615.12 
+
+Model: Model 32 
+AIC: 64548.27 
+BIC: 64590.72 
+
+Model: Model 33 
+AIC: 64556.16 
+BIC: 64591.53 
+
+Model: Model 34 
+AIC: 64598.46 
+BIC: 64633.84 
+
+
+City: Reboleira 
+Model: Model 1 
+AIC: 66167.54 
+BIC: 66188.77 
+
+Model: Model 2 
+AIC: 65307.42 
+BIC: 65335.73 
+
+Model: Model 3 
+AIC: 65540.95 
+BIC: 65569.26 
+
+Model: Model 4 
+AIC: 64076.38 
+BIC: 64111.77 
+
+Model: Model 5 
+AIC: 65148.18 
+BIC: 65176.49 
+
+Model: Model 6 
+AIC: 64657.84 
+BIC: 64693.23 
+
+Model: Model 7 
+AIC: 64771.83 
+BIC: 64807.22 
+
+Model: Model 8 
+AIC: 63704.67 
+BIC: 63747.14 
+
+Model: Model 9 
+AIC: 65082.58 
+BIC: 65110.89 
+
+Model: Model 10 
+AIC: 64643.94 
+BIC: 64679.33 
+
+Model: Model 11 
+AIC: 64742.49 
+BIC: 64777.88 
+
+Model: Model 12 
+AIC: 63733.45 
+BIC: 63775.92 
+
+Model: Model 13 
+AIC: 65079.64 
+BIC: 65115.03 
+
+Model: Model 14 
+AIC: 64639.06 
+BIC: 64681.53 
+
+Model: Model 15 
+AIC: 64739 
+BIC: 64781.47 
+
+Model: Model 16 
+AIC: 63704.47 
+BIC: 63754.02 
+
+Model: Model 17 
+AIC: 68818.3 
+BIC: 68832.46 
+
+Model: Model 18 
+AIC: 66718.49 
+BIC: 66739.71 
+
+Model: Model 19 
+AIC: 63949.53 
+BIC: 63970.75 
+
+Model: Model 20 
+AIC: 63907.51 
+BIC: 63935.81 
+
+Model: Model 21 
+AIC: 68526.76 
+BIC: 68547.98 
+
+Model: Model 22 
+AIC: 66411.58 
+BIC: 66439.88 
+
+Model: Model 23 
+AIC: 63586.06 
+BIC: 63614.36 
+
+Model: Model 24 
+AIC: 63550.76 
+BIC: 63586.14 
+
+Model: Model 25 
+AIC: 68549.54 
+BIC: 68570.76 
+
+Model: Model 26 
+AIC: 66438.71 
+BIC: 66467.01 
+
+Model: Model 27 
+AIC: 63615.94 
+BIC: 63644.24 
+
+Model: Model 28 
+AIC: 63580.57 
+BIC: 63615.94 
+
+Model: Model 29 
+AIC: 68525.42 
+BIC: 68553.72 
+
+Model: Model 30 
+AIC: 66407.54 
+BIC: 66442.91 
+
+Model: Model 31 
+AIC: 63585.06 
+BIC: 63620.44 
+
+Model: Model 32 
+AIC: 63549.57 
+BIC: 63592.03 
+
+Model: Model 33 
+AIC: 63551.28 
+BIC: 63586.65 
+
+Model: Model 34 
+AIC: 63581.04 
+BIC: 63616.42 
+
